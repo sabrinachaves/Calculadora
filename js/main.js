@@ -21,8 +21,13 @@ for(let indice=0; indice < keyList.length;indice++){
             num1 = parseFloat(display.value);
             operator = key.value;
             deleteDisplay();
+            display.value = key.value;
+            count++;
         }
         else{
+            if(display.value == "+" || display.value == "-" || display.value == "/" || display.value == "*"){
+                deleteDisplay();
+            } 
             display.value = display.value + key.value;
         }
     }
