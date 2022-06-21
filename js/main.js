@@ -12,25 +12,29 @@ let count = 0;
 keyList.forEach((elemento) => {
     elemento.addEventListener("click", (e) => {
         if (e.target.classList[0] === "number") {
-            if(tempOperator != ""){
+            if (tempOperator != "") {
                 deleteDisplay();
                 tempOperator = "";
             }
             display.value += parseFloat(e.target.textContent);
-        } else if (e.target.classList[0] === "sign") {
-            operator = e.target.value;
-            tempOperator = operator;
-            count++;
-            if (count > 1){
+            if (operator === undefined) {
+                num1 = parseFloat(display.value);
+            } else {
                 num2 = parseFloat(display.value);
+            }
+        } else if (e.target.classList[0] === "sign") {
+            count++;
+            console.log(num1, num2, operator)
+            if(count > 1){
                 display.value = parseFloat(calculate(num1, num2, operator));
                 num1 = parseFloat(display.value);
-            }else{
-                num1 = parseFloat(display.value);
             }
+            operator = e.target.value;
+            tempOperator = operator;
+            
         } else if (e.target.classList[0] === "especial") {
             if (e.target.textContent === "=") {
-                if (count >= 1){
+                if (count >= 1) {
                     num2 = parseFloat(display.value);
                 }
                 console.log(num1, num2, operator)
@@ -40,6 +44,7 @@ keyList.forEach((elemento) => {
                 count = 0;
                 num1 = 0;
                 num2 = 0;
+                operator = undefined;
                 deleteDisplay();
                 deleteExpression();
             }
