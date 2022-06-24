@@ -22,6 +22,7 @@ keyList.forEach((elemento) => {
             } else {
                 num2 = parseFloat(display.value);
             }
+            expression.innerHTML += e.target.textContent;
         } else if (e.target.classList[0] === "sign") {
             count++;
             console.log(num1, num2, operator)
@@ -31,14 +32,15 @@ keyList.forEach((elemento) => {
             }
             operator = e.target.value;
             tempOperator = operator;
+            expression.innerHTML += e.target.textContent;
             
         } else if (e.target.classList[0] === "especial") {
             if (e.target.textContent === "=") {
                 if (count >= 1) {
                     num2 = parseFloat(display.value);
                 }
-                console.log(num1, num2, operator)
                 display.value = parseFloat(calculate(num1, num2, operator));
+                expression.innerHTML += e.target.textContent + display.value;
             }
             else if (e.target.textContent === "C") {
                 count = 0;

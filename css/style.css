@@ -54,7 +54,7 @@ h1{
     justify-content: space-between;
 }
 
-.row:last-child .number{
+.row:last-child .especial{
     background-color: #FF69B4;
 }
 
@@ -91,10 +91,15 @@ h1{
     cursor: pointer;
 }
 
+.especial{
+    width: 48%;
+}
+
 .expression{
     display: block;
     margin-bottom: 2%;
     height: 19px;
+    color: white;
 }
 
 @media(max-width: 1000px){
