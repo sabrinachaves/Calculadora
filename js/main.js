@@ -48,6 +48,9 @@ keyList.forEach((elemento) => {
                 deleteDisplay();
                 deleteExpression();
             }
+            else if (e.target.textContent === "CE") {
+                display.value = display.value.slice(0,-1);
+            }
         }
     })
 })

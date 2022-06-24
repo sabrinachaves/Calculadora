@@ -91,5 +91,23 @@ h1{
     cursor: pointer;
 }
 
+.expression{
+    display: block;
+    margin-bottom: 2%;
+    height: 19px;
+}
+
+@media(max-width: 1000px){
+    .calculator{
+        width: 60%;
+    }
+}
+
+@media(max-width: 600px ){
+    .calculator{
+        width: 80%;
+    }
+}
+
 
 
